@@ -2,11 +2,9 @@
 import {applyMiddleware, compose, createStore} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly'
-import {syncResponses} from '@curi/redux'
 
 import {sagas} from 'state/sagas'
 import {reducers} from 'state/reducers'
-import {router} from 'router'
 
 const sagasMiddleware = createSagaMiddleware()
 
@@ -26,4 +24,3 @@ export const store = createStore(
 
 // Boot up saga middleware and our route syncing.
 sagasMiddleware.run(sagas)
-syncResponses(store, router)

@@ -1,9 +1,8 @@
 
 import React from 'react'
-import {connect} from 'react-redux'
+import {CuriProvider} from '@curi/react'
 
-import {routeType} from 'selectors'
-import {ROUTE_HOME, ROUTE_ABOUT} from 'router'
+import {router, ROUTE_HOME, ROUTE_ABOUT} from 'router'
 
 import {Home} from 'view/Screens/Home'
 import {About} from 'view/Screens/About'
@@ -13,13 +12,15 @@ const routesMap = {
   [ROUTE_ABOUT]: About
 }
 
-const mapStateToProps = state => ({
-  route: routeType(state)
-})
-
-function Container ({route}) {
-  const Route = routesMap[route] ? routesMap[route] : routesMap[ROUTE_HOME]
-  return (<Route />)
+export function Routes () {
+  return (
+    <CuriProvider router={router}>
+      {
+        ({ response, navigation, router }) => {
+          const Route = routesMap[response.name] ? routesMap[response.name] : routesMap[ROUTE_HOME]
+          return <Route />
+        }
+      }
+    </CuriProvider>
+  )
 }
-
-export const Routes = connect(mapStateToProps)(Container)

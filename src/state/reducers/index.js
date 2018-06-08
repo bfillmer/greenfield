@@ -1,12 +1,10 @@
 
-import {combineReducers} from 'redux'
-import {curiReducer as location} from '@curi/redux'
+// import {combineReducers} from 'redux'
 
 import {STORE_RESET} from 'types'
 
-const appReducer = combineReducers({
-  location
-})
+const appReducer = state => state
+// const appReducer = combineReducers({})
 
 // Reset the store by passing undefined as the state.
 export const reducers = (state, action) => {

@@ -1,7 +1,7 @@
 
 import Browser from '@hickory/browser'
-import curi from '@curi/core'
-import scrollEffect from '@curi/side-effect-scroll'
+import curi from '@curi/router'
+import scroll from '@curi/side-effect-scroll'
 
 // ROUTE IDENTIFIERS
 export const ROUTE_HOME = 'route/HOME'
@@ -25,8 +25,6 @@ const routes = [
   }
 ]
 
-const scrollTo = scrollEffect()
-
 export const router = curi(history, routes, {
-  sideEffects: [{ effect: scrollTo, after: true }]
+  sideEffects: [scroll()]
 })
