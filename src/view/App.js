@@ -1,5 +1,6 @@
 
 import React from 'react'
+import {CuriProvider} from '@curi/react'
 import {ThemeProvider} from 'styled-components'
 
 import {Application} from 'view/Shared/Structural'
@@ -8,13 +9,19 @@ import {Routes} from 'view/Routes'
 
 import {theme} from 'view/theme'
 
+import {router} from 'router'
+
 export function App () {
   return (
-    <ThemeProvider theme={theme}>
-      <Application>
-        <Header />
-        <Routes />
-      </Application>
-    </ThemeProvider>
+    <CuriProvider router={router}>
+      {() => (
+        <ThemeProvider theme={theme}>
+          <Application>
+            <Header />
+            <Routes />
+          </Application>
+        </ThemeProvider>
+      )}
+    </CuriProvider>
   )
 }
