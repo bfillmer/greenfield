@@ -17,14 +17,14 @@ npm run build # production build
 npm run clean # clears node_modules
 ```
 
-## Overview
+All commands use `NODE_PATH` to leverage absolute pathing to `src/` for cleaner imports in source code.
 
-* Commands include `NODE_PATH` to leverage absolute pathing to `src/` for cleaner imports.
+## Library Overview
+
+* `axios` just-works http client (https://github.com/axios/axios)
+* `curi` routing (https://curi.js.org/)
+* `redux-actions` simplify actions boilerplate (https://github.com/acdlite/redux-actions)
+* `redux-data-structures` reducer creators for most use cases (https://redux-data-structures.js.org/)
+* `redux-saga` side-effects (https://redux-saga.js.org/)
 * `standardjs` linting (https://standardjs.com/)
 * `styled-components` css-in-js (https://www.styled-components.com)
-* `styled-system` useful utility belt for styled-components (http://jxnblk.com/styled-system/)
-* `curi` routing (https://curi.js.org/)
-* `redux-saga` side-effects (https://redux-saga.js.org/)
-* `redux-actions` simplify actions boilerplate (https://github.com/acdlite/redux-actions)
-* `axios` just-works http client (https://github.com/axios/axios)
-* `redux-data-structures` reducer creators for most use cases (https://redux-data-structures.js.org/)

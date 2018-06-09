@@ -28,6 +28,7 @@ function * handleLocationChange (response, channel) {
   }
 }
 
+// Wrap our curi router observable in an eventChannel for ease of use with sagas.
 function routerChannel () {
   return eventChannel(emitter => {
     const observer = router.respond(function handleRouteChange ({response}) {
@@ -37,7 +38,7 @@ function routerChannel () {
   })
 }
 
-export function * routes () {
+export function * routing () {
   const channel = yield call(routerChannel)
   const initialRoute = yield call([router, 'current'])
 

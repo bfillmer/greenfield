@@ -31,6 +31,7 @@ const space = {}
 // Simple Lens to allow easy access to nested theme values.
 const get = (obj, path, fallback) => path.split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
+
 export const themeValue = (keys, fallback) => props => get(props.theme, keys, fallback)
 
 // Reusable definitions for colors, spacings, etc.
@@ -44,12 +45,13 @@ export const theme = {
 // Inject some global styles that are most likely to be coupled to theme variables.
 injectGlobal`
   html {
-    /* 1rem = 16px */
-    font-size: 16px;
+    /* 1rem = 10px */
+    font-size: 62.5%;
   }
   body {
     font-weight: normal;
     font-family: sans-serif;
+    font-size: 1.6rem;
     background-color: ${gray['50']};
   }
 `

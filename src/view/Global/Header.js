@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import {Logo} from 'view/Global/Logo'
 
-function ComposeHeader ({className}) {
+function ComposedHeader ({className}) {
   return (
     <header className={className}>
       <Logo />
@@ -12,7 +12,7 @@ function ComposeHeader ({className}) {
   )
 }
 
-export const Header = styled(ComposeHeader)`
+export const Header = styled(ComposedHeader)`
   text-align: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
