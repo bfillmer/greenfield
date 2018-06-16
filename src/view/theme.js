@@ -28,7 +28,7 @@ const secondary = {
 
 const space = {}
 
-// Simple Lens to allow easy access to nested theme values.
+// Simple lens to allow easy access to nested theme values.
 const get = (obj, path, fallback) => path.split('.')
   .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
 
@@ -45,7 +45,7 @@ export const theme = {
 // Inject some global styles that are most likely to be coupled to theme variables.
 injectGlobal`
   html {
-    /* 1rem = 10px */
+    /* 1rem = 10px @ base browser settings */
     font-size: 62.5%;
   }
   body {
@@ -69,7 +69,7 @@ const breakpoints = {
 export const media = Object.keys(breakpoints).reduce((acc, label) => {
   return Object.assign({}, acc, {
     [label]: (...args) => css`
-      @media (max-width: ${breakpoints[label] / 16}em) {
+      @media (min-width: ${breakpoints[label] / 16}em) {
         ${css(...args)}
       }
     `

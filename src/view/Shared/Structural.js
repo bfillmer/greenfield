@@ -8,6 +8,6 @@ export const Application = styled.main`
 
 // PRIMARY CONTENT AREA
 export const Section = styled.section`
-  width: 33rem;
+  max-width: 33rem;
   margin: 0 auto;
 `
