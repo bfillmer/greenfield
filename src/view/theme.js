@@ -1,45 +1,33 @@
 
 import {css, injectGlobal} from 'styled-components'
 
-const gray = {
-  50: '#fafafa',
-  100: '#f5f5f5',
-  200: '#eee',
-  300: '#e0e0e0',
-  400: '#bdbdbd',
-  500: '#9e9e9e',
-  600: '#757575',
-  700: '#616161',
-  800: '#424242',
-  900: '#212121'
-}
-
-const primary = {
-  base: '#80deea',
-  light: '#b4ffff',
-  dark: '#4bacb8'
-}
-
-const secondary = {
-  base: '#ff5722',
-  light: '#ff8a50',
-  dark: '#c41c00'
-}
-
-const space = {}
-
-// Simple lens to allow easy access to nested theme values.
-const get = (obj, path, fallback) => path.split('.')
-  .reduce((a, b) => (a && a[b]) ? a[b] : null, obj) || fallback
-
-export const themeValue = (keys, fallback) => props => get(props.theme, keys, fallback)
-
 // Reusable definitions for colors, spacings, etc.
 export const theme = {
-  primary,
-  secondary,
-  gray,
-  space
+  colors: {
+    grays: {
+      100: '#fafafa',
+      200: '#f4f5f8',
+      300: '#dbdde6',
+      400: '#bfc1ca',
+      500: '#222'
+    },
+    primary: {
+      base: '#80deea',
+      contrast: '#b4ffff',
+      interaction: '#4bacb8'
+    },
+    secondary: {
+      base: '#ff5722',
+      contrast: '#ff8a50',
+      interaction: '#c41c00'
+    }
+  },
+  space: {
+    small: '0.5rem',
+    base: '1rem',
+    medium: '2rem',
+    large: '4rem'
+  }
 }
 
 // Inject some global styles that are most likely to be coupled to theme variables.
@@ -52,9 +40,22 @@ injectGlobal`
     font-weight: normal;
     font-family: sans-serif;
     font-size: 1.6rem;
-    background-color: ${gray['50']};
+    background-color: ${theme.colors.grays['100']};
   }
 `
+
+// Simple lens to allow easy access to nested theme values.
+const get = (obj, path) => path.split('.').reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
+
+export const themeValue = path => props => {
+  const value = get(props.theme, path)
+
+  if (value) {
+    return value
+  } else {
+    throw new Error(`The provided path - ${path} - was not found in the theme.`)
+  }
+}
 
 // Media Queries & Breakpoints
 // Usage: ${media.desktop`display: block;`}

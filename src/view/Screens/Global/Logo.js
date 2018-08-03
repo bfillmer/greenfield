@@ -25,6 +25,6 @@ export const Logo = styled(Svg)`
   height: 80px;
   animation: ${logoSpin} infinite 20s linear;
   g {
-    fill: ${themeValue('primary.base')};
+    fill: ${themeValue('colors.primary.base')};
   }
 `

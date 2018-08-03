@@ -4,8 +4,7 @@ import {CuriProvider} from '@curi/react'
 
 import {router, ROUTE_HOME, ROUTE_ABOUT} from 'router'
 
-import {Home} from 'view/Screens/Home'
-import {About} from 'view/Screens/About'
+import {Home, About} from 'view/Screens'
 
 const routesMap = {
   [ROUTE_HOME]: Home,

@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Logo} from 'view/Global/Logo'
+import {Logo} from './Logo'
 
 function ComposedHeader ({className}) {
   return (

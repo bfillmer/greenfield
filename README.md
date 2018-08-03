@@ -15,6 +15,7 @@ npm run coverage # Jest coverage report
 npm run lint # fix basic linting errors
 npm run build # production build
 npm run clean # clears node_modules
+npm run analyze # analyze build size
 ```
 
 All commands use `NODE_PATH` to leverage absolute pathing to `src/` for cleaner imports in source code.

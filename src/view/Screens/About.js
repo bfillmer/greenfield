@@ -1,9 +1,7 @@
 
 import React from 'react'
 
-import {Section} from 'view/Shared/Structural'
-import {Heading, P} from 'view/Shared/Typography'
-import {A} from 'view/Shared/Navigate'
+import {A, Heading, P, Section} from 'view/Atoms'
 
 import {ROUTE_HOME} from 'router'
 

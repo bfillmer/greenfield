@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 
 import {store} from 'state/store'
-import {App} from 'view/App'
+import {Root} from 'view/Root'
 
 ReactDOM.render((
   <Provider store={store}>
-    <App />
+    <Root />
   </Provider>
 ), document.getElementById('root'))
