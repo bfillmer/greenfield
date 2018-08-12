@@ -8,7 +8,6 @@
     "build": "rm -rf ./build && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "coverage": "npm test -- --coverage",
-    "analyze": "npm run build && source-map-explorer build/static/js/main.*",
     "lint": "standard --fix",
     "clean": "rm -rf node_modules"
   },
@@ -25,13 +24,12 @@
     "redux-actions": "^2.6.1",
     "redux-data-structures": "^0.1.6",
     "redux-saga": "^0.16.0",
-    "styled-components": "^3.4.0"
+    "styled-components": "^3.4.2"
   },
   "devDependencies": {
     "react-scripts": "^1.1.4",
     "redux-devtools-extension": "^2.13.5",
-    "serve": "^9.4.0",
-    "source-map-explorer": "^1.5.0",
+    "serve": "^9.4.2",
     "standard": "^11.0.1"
   },
   "jest": {
