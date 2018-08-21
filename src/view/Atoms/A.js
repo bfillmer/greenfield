@@ -5,10 +5,11 @@ import styled from 'styled-components'
 
 import {themeValue} from 'view/theme'
 
-import {makeNavigate} from 'router'
+import {makeNavigate, getPathname} from 'router'
 
 function InternalLink ({href, children, ...props}) {
-  return (<a href={href} onClick={makeNavigate(href)} {...props}>{children}</a>)
+  const pathname = getPathname(href)
+  return (<a href={pathname} onClick={makeNavigate(href)} {...props}>{children}</a>)
 }
 
 function ExternalLink ({children, ...props}) {
