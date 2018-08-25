@@ -1,16 +1,13 @@
 
 import React from 'react'
 
-import {Heading, P, A, Section} from 'view/Atoms'
-
-import {ROUTE_ABOUT} from 'router'
+import {Heading, P, Section} from 'view/Atoms'
 
 export function Home () {
   return (
     <Section>
       <Heading>Home</Heading>
-      <P><A href={ROUTE_ABOUT}>About</A></P>
-      <P><A href='https://google.com' external>Google</A></P>
+      <P>This is the home screen.</P>
     </Section>
   )
 }

@@ -1,24 +1,8 @@
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import {Link} from '@curi/react'
 
 import {themeValue} from 'view/theme'
-
-import {makeNavigate, getPathname} from 'router'
-
-function InternalLink ({href, children, ...props}) {
-  const pathname = getPathname(href)
-  return (<a href={pathname} onClick={makeNavigate(href)} {...props}>{children}</a>)
-}
-
-function ExternalLink ({children, ...props}) {
-  return (<a {...props}>{children}</a>)
-}
-
-function Link ({external, ...props}) {
-  return external ? <ExternalLink {...props} /> : <InternalLink {...props} />
-}
 
 export const A = styled(Link)`
   color: ${themeValue('colors.primary.base')};
@@ -29,12 +13,11 @@ export const A = styled(Link)`
   }
 `
 
-A.propTypes = {
-  href: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  external: PropTypes.bool
-}
+export const ExternalA = styled.a`
+  color: ${themeValue('colors.primary.base')};
+  text-decoration: none;
 
-A.defaultProps = {
-  external: false
-}
+  &:hover {
+    color: ${themeValue('colors.primary.interaction')};
+  }
+`
