@@ -15,8 +15,8 @@ const routesMap = {
 // Wrap our curi router observable in an eventChannel for ease of use with sagas.
 function routerChannel () {
   return eventChannel(emitter => {
-    const observer = router.respond(function handleRouteChange ({response}) {
-      emitter(response)
+    const observer = router.respond(function handleRouteChange (curiProps) {
+      emitter(curiProps)
     }, {observe: true})
     return () => observer()
   })
@@ -25,10 +25,12 @@ function routerChannel () {
 // Run the saga for a given route if one exists, then watch for the next location change
 // and cancel the previously running saga. Route sagas always recieve the location response.
 // @NOTE Authentication checks and the like would go within this saga.
-function * handleLocationChange (response, channel) {
+function * handleLocationChange (curiProps, channel) {
   try {
+    const {response} = curiProps
+
     if (response.name && routesMap[response.name]) {
-      const task = yield fork(routesMap[response.name], response)
+      const task = yield fork(routesMap[response.name], curiProps)
       yield take(channel)
       yield cancel(task)
     }
@@ -44,12 +46,12 @@ export function * routing () {
 
   // Assuming curi has booted before sagas check for an initial route saga to run.
   if (initialRoute.response) {
-    yield call(handleLocationChange, initialRoute.response, channel)
+    yield call(handleLocationChange, {...initialRoute, router}, channel)
   }
 
   // Watch for any route changes with curi and run a route saga if it exists.
   while (true) {
-    const response = yield take(channel)
-    yield call(handleLocationChange, response, channel)
+    const curiProps = yield take(channel)
+    yield call(handleLocationChange, curiProps, channel)
   }
 }

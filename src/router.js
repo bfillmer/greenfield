@@ -17,20 +17,3 @@ const routes = [
 export const router = curi(history, routes, {
   sideEffects: [scroll()]
 })
-
-export function getPathname (ROUTE_ID) {
-  return router.route.pathname(ROUTE_ID)
-}
-
-// Create a navigation function to leverage curi.
-export function makeNavigate (ROUTE_ID) {
-  const pathname = getPathname(ROUTE_ID)
-
-  return function navigate (e) {
-    if (e && e.preventDefault) {
-      e.preventDefault()
-    }
-
-    history.navigate(pathname)
-  }
-}
