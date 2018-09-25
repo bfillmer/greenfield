@@ -1,8 +1,8 @@
 
 import styled from 'styled-components'
-import {Link} from '@curi/react'
+import { Link } from '@reach/router'
 
-import {themeValue} from 'view/theme'
+import { themeValue } from 'theme'
 
 export const A = styled(Link)`
   color: ${themeValue('colors.primary.base')};
