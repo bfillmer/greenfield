@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import {Heading, P, Section} from 'view/Atoms'
+import { Heading, P, Section } from 'Atoms'
 
 export function Home () {
   return (

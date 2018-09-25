@@ -1,5 +1,5 @@
 
-import {css, injectGlobal} from 'styled-components'
+import { css, injectGlobal } from 'styled-components'
 
 // Reusable definitions for colors, spacings, etc.
 export const theme = {

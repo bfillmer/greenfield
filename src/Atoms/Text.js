@@ -1,7 +1,7 @@
 
 import styled from 'styled-components'
 
-import {themeValue} from 'view/theme'
+import { themeValue } from 'theme'
 
 export const Heading = styled.h1`
   color: ${themeValue('colors.grays.500')};
