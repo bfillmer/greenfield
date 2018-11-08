@@ -6,15 +6,18 @@ import { ThemeProvider } from 'styled-components'
 import { Application } from 'Atoms'
 import { Routes } from 'Routes'
 
-import { theme } from 'theme'
+import { theme, GlobalStyle } from 'theme'
 
 function App () {
   return (
-    <ThemeProvider theme={theme}>
-      <Application>
-        <Routes />
-      </Application>
-    </ThemeProvider>
+    <React.Fragment>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Application>
+          <Routes />
+        </Application>
+      </ThemeProvider>
+    </React.Fragment>
   )
 }
 

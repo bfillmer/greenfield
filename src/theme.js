@@ -1,5 +1,5 @@
 
-import { css, injectGlobal } from 'styled-components'
+import { css, createGlobalStyle } from 'styled-components'
 
 // Reusable definitions for colors, spacings, etc.
 export const theme = {
@@ -31,7 +31,7 @@ export const theme = {
 }
 
 // Inject some global styles that are most likely to be coupled to theme variables.
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
   html {
     /* 1rem = 10px @ base browser settings */
     font-size: 62.5%;
