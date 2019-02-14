@@ -17,10 +17,21 @@ npm run build # production build
 
 All commands use `NODE_PATH` to leverage absolute pathing to `src/` for cleaner imports in source code.
 
+## Commit Hooks
+Husky commit hooks are setup by default to attempt to run a static build on any commit. This ensures that everything has been linted and a build would be successful if the code went to production.
+
+While this boilerplate does not have tests, if any were added the husky configuration in `package.json` should be changed to:
+
+```json
+"husky": {
+  "hooks": {
+    "pre-commit": "npm run ci-build && npm run ci-test"
+  }
+}
+```
+
 ## Library Overview
 
 * `axios` just-works http client (https://github.com/axios/axios)
-* `formik` simple forms (https://jaredpalmer.com/formik)
 * `reach router` dead-simple routing (https://reach.tech/router)
-* `standardjs` linting (https://standardjs.com/)
 * `styled-components` css-in-js (https://www.styled-components.com)

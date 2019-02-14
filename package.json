@@ -1,6 +1,6 @@
 {
   "name": "greenfield",
-  "version": "3.5.0",
+  "version": "4.0.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -8,20 +8,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "now-start": "serve -s ./build",
-    "lint": "standard --fix"
+    "ci-build": "CI=true npm run build",
+    "ci-test": "CI=true npm test"
   },
   "dependencies": {
-    "@reach/router": "^1.2.1",
-    "axios": "^0.18.0",
-    "react": "next",
-    "react-dom": "next",
-    "react-scripts": "^2.1.2",
-    "serve": "^10.1.1",
-    "styled-components": "^4.1.3"
+    "@reach/router": "latest",
+    "axios": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-scripts": "latest",
+    "serve": "latest",
+    "styled-components": "latest"
   },
   "devDependencies": {
-    "husky": "^1.3.1",
-    "standard": "^12.0.1"
+    "husky": "latest"
   },
   "browserslist": [
     ">0.2%",
@@ -31,7 +31,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run ci-build"
     }
   }
 }

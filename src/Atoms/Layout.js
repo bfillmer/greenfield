@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 // GLOBAL WRAPPER
-export const Application = styled.main`
+export const Application = styled('main')`
   display: flex;
   height: 100vh;
   width: 100%;
@@ -12,6 +12,6 @@ export const Application = styled.main`
 `
 
 // PRIMARY CONTENT AREA
-export const Section = styled.section`
+export const Section = styled('section')`
   max-width: 66rem;
 `

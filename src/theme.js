@@ -44,17 +44,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 `
 
-// Simple lens to allow easy access to nested theme values.
-const get = (obj, path) => path.split('.').reduce((a, b) => (a && a[b]) ? a[b] : null, obj)
-
-export const themeValue = path => props => {
-  const value = get(props.theme, path)
-
-  if (value) {
-    return value
-  } else {
-    throw new Error(`The provided path - ${path} - was not found in the theme.`)
-  }
+// Retrieve Theme Value
+// Usage: ${themeValue`colors.primary.base`}
+export function themeValue (params) {
+  return css`
+    ${props => params[0].split('.').reduce((a, b) => (a && a[b]) ? a[b] : null, props.theme)}
+  `
 }
 
 // Media Queries & Breakpoints
