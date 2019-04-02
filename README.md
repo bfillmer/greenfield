@@ -11,7 +11,6 @@ Build pipeline provided by [Create React App](https://github.com/facebookincubat
 npm i # install dependencies
 npm start # development server
 npm test # Jest in watch-mode
-npm run lint # fix basic linting errors
 npm run build # production build
 ```
 
